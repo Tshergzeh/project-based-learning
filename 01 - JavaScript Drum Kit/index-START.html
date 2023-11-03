@@ -67,7 +67,9 @@
 				var pressedKey = allKeys[i];
 				pressedKey.classList.add("playing");
 				var selector = "audio[data-key='" + e.keyCode + "']";
-				document.querySelector(selector).play();
+				audioElement = document.querySelector(selector)
+				audioElement.currentTime = 0;
+				audioElement.play();
 				setTimeout(function() {
 					pressedKey.classList.remove("playing");
 				}, 100);
