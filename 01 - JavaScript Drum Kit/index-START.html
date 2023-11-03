@@ -70,14 +70,14 @@
 				audioElement = document.querySelector(selector)
 				audioElement.currentTime = 0;
 				audioElement.play();
-				setTimeout(function() {
-					pressedKey.classList.remove("playing");
-				}, 100);
 			}
 		}
 	});
 
-	
+	allKeys.forEach(key => key.addEventListener('transitionend', function(e) {
+		if (e.propertyName !== 'transform') return; // skip if the transition is not a transform
+		this.classList.remove("playing");
+	}));
 </script>
 
 
